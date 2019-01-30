@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WebApp - Aggregated Timeseries</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="node_modules/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="node_modules/angular-datetime-range/dist/datetime-range.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="node_modules/gentelella/build/css/custom.min.css" rel="stylesheet">
+    <!-- Angular JS Material -->
+    <link href="node_modules/angular-material/angular-material.min.css" rel="stylesheet">
+    <!-- Custom Siemens Theme -->
+    <link href="styles/siemens-theme.css" rel="stylesheet">
+  </head>
+  
+    <script src="node_modules/angular/angular.min.js" ></script>
+    <script src="node_modules/angular-route/angular-route.min.js" ></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="node_modules/angular-material/angular-material.min.js"></script>
+
+    <script src="node_modules/moment/moment.js" ></script>
+    <script src="node_modules/angular-datetime-range/dist/datetime-range.min.js" ></script>
+    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script src="app/app.js" ></script>
+    <!-- custom control script section -->
+    <script src="app/components/assetlist.js" ></script>
+    <script src="app/components/timeseries.js" ></script>
+    
+  <body class="nav-md siemens-bg-color" ng-app="myApp">
+    
+    <div class="container body" id="_mscontent">
+      <div class="main_container">
+        
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view siemens-bg-color">
+            
+            <div class="clearfix"></div>
+            <div class="navbar nav_title siemens-bg-color-title" style="z-index: 1;">
+                <img alt="Siemens" src="images/siemens.svg"  class="siemens-title">
+            </div>
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu siemens-bg-color" style="position: relative; top: 15px;">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li>
+                    <a><i class="fa fa-edit"></i>Objectives<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#!assets">Assets</a></li>
+                      <li><a href="#!timeseries">Timeseries</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+          </div>
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div ng-view></div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com" style="background-color: transparent">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+
+      </div>
+    </div>
+
+    <!-- MindSphere OS bar -->
+    <script src="https://static.eu1.mindsphere.io/osbar/js/main.min.js"></script>
+    <script>
+      _msb.init({
+          title: "WebApp - Aggregated Timeseries",
+          appId: "_mscontent"
+      });
+    </script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="node_modules/gentelella/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="node_modules/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="node_modules/gentelella/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="node_modules/gentelella/vendors/nprogress/nprogress.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="node_modules/gentelella/build/js/custom.min.js"></script>
+
+  </body>
+</html>

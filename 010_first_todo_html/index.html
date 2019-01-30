@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="sample.css" rel="stylesheet">
+    <script src="sample.js"></script>
+
+    <!-- <script src="jquery-3.3.1.js"></script> -->
+
+    <!-- MindBar -->
+    <script>
+
+        (function (d, script) {
+            script = d.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.onload = function () {
+                _mdsp.init({
+                    title: "MindSphere Sample HTML",
+                    initialize: true
+                });
+            };
+            script.src = 'https://static.eu1.mindsphere.io/osbar/v4/js/main.min.js';
+            d.getElementsByTagName('head')[0].appendChild(script);
+        }(document));
+
+    </script>
+
+</head>
+
+
+<body>
+    <div id="_mdspcontent">
+        <div id="content">
+            <div id="myDIV" class="header">
+                <h2 style="margin:5px">My To Do List</h2>
+                <input type="text" id="myInput" placeholder="Title...">
+                <span onclick="newElement()" class="addBtn">Add</span>
+            </div>
+
+            <ul id="myUL">
+                <li>Hit the gym</li>
+                <li class="checked">Pay bills</li>
+                <li>Meet George</li>
+                <li>Buy eggs</li>
+                <li>Read a book</li>
+                <li>Organize office</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

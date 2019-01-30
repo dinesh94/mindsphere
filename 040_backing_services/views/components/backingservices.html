@@ -1,0 +1,75 @@
+<div class="" ng-controller="BackingServicesCtrl as ctrl">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Backing Services</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div ng-hide="hasRouteParams">
+                    <div class="jumbotron">
+                        <p>Asset is not selected.</p>
+                        <p>Please go to 'Assets' page and select an asset.</p>
+                    </div>
+                </div>
+                <div class="ng-hide" ng-show="hasRouteParams">
+                    <div class="x_title">
+                        <h2>{{title}}</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form id="demo-form2" class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="asset-id">
+                                    Asset ID
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="asset-id" class="form-control col-md-7 col-xs-12" 
+                                    disabled="disabled" ng-model="assetId">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="asset-name">
+                                    Asset Name
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="asset-name" class="form-control col-md-7 col-xs-12" 
+                                    disabled="disabled" ng-model="assetName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="backing-services-data">
+                                    Backing Services Data
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="backing-services-data" class="form-control col-md-7 col-xs-12"
+                                    ng-model="bsData">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="backing-services-timestamp">
+                                    Backing Services Timestamp
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="backing-services-timestamp" class="form-control col-md-7 col-xs-12"
+                                    disabled="disabled" ng-model="bsTimestamp">
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" ng-click="resetData()">Reset</button>
+                                    <button class="btn btn-success" ng-click="submitData()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

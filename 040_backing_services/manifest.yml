@@ -1,0 +1,11 @@
+applications:
+  - name: samplehtml
+    buildpack: nodejs_buildpack
+    memory: 50MB
+    command: node app.js
+services:
+  - mymongodb
+env:
+  CONFIG: '{
+    "mongoservice": "mymongodb"
+    }'

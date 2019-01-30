@@ -1,0 +1,20 @@
+{
+  "name": "techuser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "Siemens AG",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cfenv": "^1.0.4",
+    "express": "^4.15.3",
+    "request":"2.81.0",
+    "btoa":"1.1.2",
+    "atob":"2.0.3",
+    "jwt-simple": "^0.5.1"
+  }
+}

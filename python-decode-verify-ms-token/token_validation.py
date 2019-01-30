@@ -1,0 +1,29 @@
+import json
+
+import jwt
+import requests
+
+
+# https://psdigdev.piam.eu1.mindsphere.io/token_keys
+# public_key_downloaded = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs6lUKywC54L/NUhFGEbA\nI39awnDV6sYnQI5e2+w2Gg6snRZh7248NKv/CnpKSbyUF8gilib37ZlGfdJuT61n\npJ/Wv9q3ZmIitPs5zaLhuAuxY/Liv8IagtP595bMCTLuQbyHIfUzFih+Q41olBwI\nsahSZWGof/mZpy1oR0vfS8ai4mSl4zzqwtctrtpQg1SVGuQoooiV7QU34HgruE4h\nENDpMGvTAtDhmFuGoGd4TolzUFMWwyHOH3TI8H2IPhUow29JPmuHS1N7SlHxarsB\nrRMRz+1wqvu2HzDiGaw5xp6LF6zYswVEu86Ph+SV0MwA+ZJJyCRYqkIMrWLWfBk6\nhQIDAQAB\n-----END PUBLIC KEY-----"
+
+def validate_and_decode_token(token_string):
+    r = requests.get("https://psdigdev.piam.eu1.mindsphere.io/token_keys")
+    keys = json.loads(r.text)
+    public_key = keys["keys"][0]["value"]
+
+    unverified_header = jwt.get_unverified_header(token_string)
+    unverified_token = jwt.decode(token_string, verify=False)
+    algorithms = unverified_header['alg']
+    audience = unverified_token["aud"]
+
+    token = jwt.decode(token_string, public_key, algorithms=algorithms, audience=audience)
+
+    return token
+
+
+if __name__ == '__main__':
+    token_string_param = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleS1pZC0xIiwidHlwIjoiSldUIn0.eyJqdGkiOiI5Mzg5ZDBjODhkMTE0N2U3ODI3ZWE1OTJlMjZjMjU5NiIsInN1YiI6ImVjYWMyMWZkLWYzMzEtNGFlMi05NTcyLWVjOTRmNmY0OTQ0OSIsInNjb3BlIjpbIm1kc3A6Y29yZTppbS5tZUlhbVZpZXdlciIsIm1kc3A6Y29yZTppbS51c2VySWFtQWRtaW4iLCJtZHNwOmNvcmU6aW0udXNlcklhbVZpZXdlciIsIm1kc3A6Y29yZTppb3QuZmlsQWRtaW4iLCJ1YWEub2ZmbGluZV90b2tlbiIsIm1kc3A6Y29yZTppb3QudGltQWRtaW4iLCJub2RlanMuYWxsIl0sImNsaWVudF9pZCI6Im5vZGVqcy1wc2RpZ2RldiIsImNpZCI6Im5vZGVqcy1wc2RpZ2RldiIsImF6cCI6Im5vZGVqcy1wc2RpZ2RldiIsImdyYW50X3R5cGUiOiJhdXRob3JpemF0aW9uX2NvZGUiLCJ1c2VyX2lkIjoiZWNhYzIxZmQtZjMzMS00YWUyLTk1NzItZWM5NGY2ZjQ5NDQ5Iiwib3JpZ2luIjoicHNkaWdkZXYiLCJ1c2VyX25hbWUiOiJkaW5lc2guYmhhdnNhckBzaWVtZW5zLmNvbSIsImVtYWlsIjoiZGluZXNoLmJoYXZzYXJAc2llbWVucy5jb20iLCJhdXRoX3RpbWUiOjE1NDg4NDI5NjEsInJldl9zaWciOiI5MjNlZDkxNyIsImlhdCI6MTU0ODg0Mjk2MSwiZXhwIjoxNTQ4ODQ0NzYxLCJpc3MiOiJodHRwczovL3BzZGlnZGV2LnBpYW0uZXUxLm1pbmRzcGhlcmUuaW8vb2F1dGgvdG9rZW4iLCJ6aWQiOiJwc2RpZ2RldiIsImF1ZCI6WyJtZHNwOmNvcmU6aW90Iiwibm9kZWpzLXBzZGlnZGV2IiwidWFhIiwibWRzcDpjb3JlOmltIiwibm9kZWpzIl0sInRlbiI6InBzZGlnZGV2Iiwic2NoZW1hcyI6WyJ1cm46c2llbWVuczptaW5kc3BoZXJlOmlhbTp2MSJdLCJjYXQiOiJ1c2VyLXRva2VuOnYxIn0.FP61Qov3ppMRl-WohlOVJvosjtm1Vab7d07uV-Z-TWTVxMdYbC_pEw2sT1gnmILbGefZd7Pm2cBMkUPjcaf13f2s0ja3inwFu-NSM3qN_VM2LWZywN9UDRZNL3O_GA-y1gf3W4S-WWS21r7b5-cASGBXFXg7Cf-oDt8w8YWJ27MFHV6wKE5j54dIyKvH8dzVsJ-_3YiMfiXo1ZAU40E1U5EjPSoDM_a92BRYIaFBrKj-nr_FPIqhds5Gr-lFPzJxnYuuVGtw2Gy5EFQu_gVAjOPQHt0EyiaTaj0Ou0NdsVZZG2mbsBdGOzcOAS3iAx5zKPmTW4z2_-Wip8g-p4ysQA"
+    token = validate_and_decode_token(token_string_param)
+
+    print("token = {}".format(token))

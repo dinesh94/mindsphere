@@ -1,0 +1,6 @@
+applications:
+  - name: samplehtml
+    buildpack: nodejs_buildpack
+    memory: 50MB
+    disk_quota: 250MB
+    command: node app.js

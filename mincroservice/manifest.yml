@@ -1,0 +1,12 @@
+---
+applications:
+- name: node_backend
+  buildpack: nodejs_buildpack
+  path: backend-node-todo
+  memory: 512M
+  disk_quota: 250MB
+- name: samplehtml
+  buildpack: nodejs_buildpack
+  path: frontend-node-todo
+  memory: 512M
+  disk_quota: 250MB

@@ -1,0 +1,7 @@
+applications:
+  - name: token-app
+    instances: 1
+    host: token-app-xx-academy2
+    memory: 100MB
+    command: node app.js
+    buildpack: nodejs_buildpack

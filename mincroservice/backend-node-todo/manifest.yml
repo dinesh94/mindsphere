@@ -1,0 +1,7 @@
+applications:
+- name: node_backend
+  instances: 1
+  buildpack: nodejs_buildpack
+  memory: 512M
+  disk_quota: 250MB
+

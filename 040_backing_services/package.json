@@ -1,0 +1,31 @@
+{
+  "name": "mywebapp",
+  "version": "1.0.0",
+  "description": "Siemens Training Basic Frontend",
+  "main": "main.js",
+  "author": "Siemens AG",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.6",
+    "angular-aria": "^1.6.6",
+    "angular-chart.js": "^1.1.1",
+    "angular-datetime-range": "^0.2.14",
+    "angular-material": "^1.1.4",
+    "angular-route": "^1.6.5",
+    "cfenv": "^1.0.4",
+    "chart.js": "^2.6.0",
+    "express": "^4.16.2",
+    "express-prettify": "^0.0.7",
+    "gentelella": "1.3.0",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "mongojs": "^2.4.0",
+    "request": "^2.81.0",
+    "serve-favicon": "^2.4.3"
+  }
+}

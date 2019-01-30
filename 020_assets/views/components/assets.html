@@ -1,0 +1,43 @@
+<div class="" ng-controller="AssetListCtrl as ctrl">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>All Assets</h3>
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    <div ng-controller="BusyIndicatorCtrl as vm" layout="column" ng-cloak>
+        <md-content layout-padding>
+            <div layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate" ng-disabled="!busy"></md-progress-circular>
+            </div>
+        </md-content>
+    </div>
+
+    <div class="row" ng-repeat="x in ctrl.assets | orderBy:timestamp | limitTo:pageSize">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <label class="checkbox">
+                        <input type=checkbox id="{{x.name}}" style="display:none" ng-model=show ng-class='{open:show}'/>
+                        <h2>{{x.name}} {{x.description | limitTo:70}}</h2>
+                    </label>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" ng-show=show>
+                    <div class="x_content">
+                        <b>Asset-ID:</b> {{x.assetId}}
+                    </div>
+                    <div class="x_content">
+                        <b>Location:</b> {{x.location.streetAddress}} {{x.location.postalCode}} {{x.location.locality}} {{x.location.country}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

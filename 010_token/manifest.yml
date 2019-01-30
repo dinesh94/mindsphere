@@ -1,0 +1,6 @@
+applications:
+  - name: samplehtml
+    instances: 1
+    memory: 100MB
+    command: node app.js
+    buildpack: nodejs_buildpack

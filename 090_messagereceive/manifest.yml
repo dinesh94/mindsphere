@@ -1,0 +1,14 @@
+applications:
+  - name: samplehtml
+    buildpack: nodejs_buildpack
+    memory: 100MB
+    command: node app.js
+services:
+  - myrabbitmq
+env:
+  CONFIG: '{
+      "rabbitmqservice": "myrabbitmq",
+      "clientId": "",
+      "clientSecret": "",
+      "securityServiceUrl": "https://academy2.piam.eu1.mindsphere.io/oauth/token"
+    }'

@@ -1,0 +1,12 @@
+applications:
+  - name: samplehtml
+    buildpack: nodejs_buildpack
+    memory: 50MB
+    disk_quota: 250MB
+    command: node app.js
+env:
+  CONFIG: '{
+    "clientId": "",
+    "clientSecret": "",
+    "securityServiceUrl": "https://psdigdev.piam.eu1.mindsphere.io/oauth/token"
+    }'

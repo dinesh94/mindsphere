@@ -1,4 +1,4 @@
-# mindsphere
+# App 1 - Token App
 
 ## Setup environment
 
@@ -40,3 +40,6 @@ Go to *User Management*, search for you user and add the right scope
 ## Correct the error in the code
 Have a look at the Authorization-Header and what we decode and how
 https://www.npmjs.com/package/jwt-simple
+
+
+

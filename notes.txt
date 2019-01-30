@@ -1,0 +1,79 @@
+MS Session
+Gtact
+https://www.plm.automation.siemens.com/global/en/support/
+
+https://psdigdev.piam.eu1.mindsphere.io/token_keys
+ 
+https://psdigdev-hellotoken-psdigdev.eu1.mindsphere.io/rest/token/me
+
+agt_service_account
+
+set http_proxy=http://coia.hcvpc.io:9400                                                            
+set https_proxy=http://coia.hcvpc.io:9400   
+
+cf login -a https://api.cf.eu1.mindsphere.io -sso
+Get passcode
+https://login.cf.eu1.mindsphere.io/passcode 
+
+cf org-users psdigdev
+cf spaces
+cf space-users psdigdev pspgdev
+cf set-org-role dinesh.bhavsar@siemens.com psdigdev OrgManager
+cf set-space-role dinesh.bhavsar@siemens.com psdigdev pspgdev SpaceDeveloper
+
+
+cf logs samplehtml --recent
+cf delete
+cf apps 
+
+cf marketplace
+cf create-service mongodb34 mongodb-xs todo_mongodb
+cf service todo_mongodb  - to check operation status as well as to get db dashboard url
+cf bind-service <app_name> todo_mongodb - to bind 
+
+cf bind-service samplehtml todo_mongodb
+cf restage samplehtml
+cf env samplehtml
+
+cf ssh MY-AWESOME-APP -L [LOCAL-NETWORK-INTERFACE:]LOCAL-PORT:REMOTE-HOST-NAME:REMOTE-HOST-PORT
+cf ssh samplehtml -L 27018:mod187988-mongodb-0.node.dc1.a9ssvc:27017
+"uri": "mongodb://a9s-brk-usr-b3197f64aeb8a291105eace2a6a51516cb15e327:a9sec7b9cc42bc9548ae9acbe965e033bc585ab475b@mod187988-mongodb-0.node.dc1.a9ssvc:27017/mod187988"
+
+
+cf routes
+cf buildpacks
+cf create-route pspgdev node_backend.apps.eu1.mindsphere.io --hostname node_backend
+
+cf push YOUR-APP -b BUILDPACK-NAME-1 -b BUILDPACK-NAME-2 ... -b FINAL-BUILDPACK-NAME
+
+
+
+# Repository for V3 training exercises
+
+For development please work on one application with all functionality.
+We will later split it up in different exercises for the different courses.
+
+# Available exercises
+
+1. Basic Application Development
+  1. Token-App
+  1. Assets
+  1. Aspects
+  1. Timeseries
+1. Advanced Application Development
+  1. Token-App
+  1. mongodb
+  1. Backing-Services
+  1. Technical User
+  1. RabbitMQ
+
+
+# Open issues
+to be moved to code/issues
+
+* Rework advanced exercises to step-by-step exercises
+* Rework advanced Backing-Services app
+  * POST instead of GET to write data
+  * Combined call to get asset data and mongodb data
+* Add POST example
+* Restructure development directory

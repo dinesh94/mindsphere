@@ -1,0 +1,8 @@
+applications:
+  - name: samplehtml
+    buildpack: nodejs_buildpack
+    memory: 50MB
+    disk_quota: 250MB
+    host: mywebapp-xx-academy2
+    domain: apps.eu1.mindsphere.io
+    command: node app.js
